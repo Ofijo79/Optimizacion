@@ -20,7 +20,7 @@ public class Enemigos : MonoBehaviour
     {
         if(other.gameObject.layer == 3)
         {
-            Destory(this.gameObject);
+            Destroy(this.gameObject);
         }
     }
 }
