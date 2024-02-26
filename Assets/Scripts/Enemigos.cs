@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Enemigos : MonoBehaviour
 {
+    
+    [SerializeField] float forwardSpeed = 5;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,10 +17,15 @@ public class Enemigos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Translate(transform.forward * forwardSpeed * Time.deltaTime);
     }
 
-    void OnCollisionEnter(Collider other)
+    void OnCollisionEnter(Collision collision)
+    {
+        gameObject.SetActive(false);
+    }
+
+    void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.layer == 3)
         {
